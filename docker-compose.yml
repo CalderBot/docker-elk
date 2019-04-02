@@ -8,12 +8,13 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    - /data/elk-data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ES_JAVA_OPTS: "-Xmx2g -Xms2g"
+      MAX_MAP_COUNT: 262144
     networks:
       - elk
 
@@ -29,7 +30,7 @@ services:
       - "5000:5000"
       - "9600:9600"
     environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
       - elk
     depends_on:
