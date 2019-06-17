@@ -8,7 +8,7 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-    - /data/elk-data:/usr/share/elasticsearch/data
+      - ${ELASTICSEARCH_DATA_PATH}:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -16,6 +16,7 @@ services:
       ES_JAVA_OPTS: "-Xmx1g -Xms1g"
       MAX_MAP_COUNT: 262144
       ELASTIC_PASSWORD: changeme
+      discovery.type: single-node
     networks:
       - elk
 

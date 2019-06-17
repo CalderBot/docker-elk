@@ -1,3 +1,12 @@
+## Notes on this fork:
+1. license is changed from trial to basic
+2. no passwords are set
+3. data saves to ELASTICSEARCH_DATA_PATH that you should set in .env
+4. added discovery.type=single-node in elasticsearch service environment. (without single-node, you will be required to configure multiple nodes, see https://www.elastic.co/guide/en/elasticsearch/reference/master/_discovery_configuration_check.html and https://stackoverflow.com/questions/55956645/docker-compose-yml-for-elasticsearch-7-0-1-and-kibana-7-0-1)
+5. modified logstash.conf and logstash/Dockerfile to include json and rubydebug codecs
+
+### -- Below here is the original forked readme --
+
 # Elastic stack (ELK) on Docker
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
