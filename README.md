@@ -4,6 +4,8 @@
 3. data saves to ELASTICSEARCH_DATA_PATH that you should set in .env
 4. added discovery.type=single-node in elasticsearch service environment. (without single-node, you will be required to configure multiple nodes, see https://www.elastic.co/guide/en/elasticsearch/reference/master/_discovery_configuration_check.html and https://stackoverflow.com/questions/55956645/docker-compose-yml-for-elasticsearch-7-0-1-and-kibana-7-0-1)
 5. modified logstash.conf and logstash/Dockerfile to include json and rubydebug codecs
+6. add docker logging limits in docker-compose.yml to not overflow /var/lib/docker/overlay2 with docker logs
+
 
 ### -- Below here is the original forked readme --
 
