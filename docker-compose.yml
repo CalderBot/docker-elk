@@ -12,6 +12,9 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    logging:
+      options:
+        max-size: 50m
     environment:
       ES_JAVA_OPTS: "-Xmx1g -Xms1g"
       MAX_MAP_COUNT: 262144
@@ -31,6 +34,9 @@ services:
     ports:
       - "5000:5000"
       - "9600:9600"
+    logging:
+      options:
+        max-size: 50m
     environment:
       LS_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
@@ -47,6 +53,9 @@ services:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
     ports:
       - "5601:5601"
+    logging:
+      options:
+        max-size: 50m
     networks:
       - elk
     depends_on:
